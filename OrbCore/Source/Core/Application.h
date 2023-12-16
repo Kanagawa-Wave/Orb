@@ -1,4 +1,5 @@
 #pragma once
+#include "Window.h"
 
 int main(int argc, char** argv);
 
@@ -16,6 +17,8 @@ namespace Orb
 		void Run();
 
 	private:
+		Window* m_Window = nullptr;
+
 		static Application* s_Instance;
 		friend int ::main(int argc, char** argv);
 	};

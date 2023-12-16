@@ -13,6 +13,9 @@ project "OrbCore"
       "External/glfw/include"
    }
 
+   pchheader "pch.h"
+   pchsource "Source/pch.cpp"
+
    links
    {
       "GLFW"
