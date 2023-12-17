@@ -16,6 +16,7 @@ namespace Orb
 		info.setTitle("Editor")
 			.setSize(800, 600);
 		m_Window = Window::Create(info);
+		m_Context = Context::Create();
 	}
 
 	Application::~Application()

@@ -18,6 +18,9 @@ project "OrbCore"
 
    links
    {
+      "d3d12.lib",
+      "dxgi.lib",
+      "d3dcompiler.lib",
       "GLFW"
    }
 

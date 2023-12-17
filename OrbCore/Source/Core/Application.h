@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Window.h"
+#include "Graphics/Context.h"
 
 int main(int argc, char** argv);
 
@@ -18,6 +20,7 @@ namespace Orb
 
 	private:
 		Window* m_Window = nullptr;
+		Context* m_Context = nullptr;
 
 		static Application* s_Instance;
 		friend int ::main(int argc, char** argv);
