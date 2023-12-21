@@ -1,3 +1,6 @@
 [submodule "OrbCore/External/glfw"]
 	path = OrbCore/External/glfw
 	url = https://github.com/TheCherno/glfw.git
+[submodule "OrbCore/External/spdlog"]
+	path = OrbCore/External/spdlog
+	url = https://github.com/gabime/spdlog.git
