@@ -3,24 +3,27 @@
 #include "Window.h"
 
 #include <GLFW/glfw3.h>
+#define GLFW_EXPOSE_NATIVE_WIN32
+#include <GLFW/glfw3native.h>
 
 namespace Orb
 {
-	static uint8_t s_WindowCount = 0;
+	Window* Window::s_Window = nullptr;
 
-	Window* Window::Create(const WindowCreateInfo& info)
+	void Window::Create(const WindowCreateInfo& info)
 	{
-		return new Window(info);
+		s_Window = new Window(info);
+	}
+
+	void Window::Destroy()
+	{
+		delete s_Window;
 	}
 
 	Window::~Window()
 	{
 		glfwDestroyWindow((GLFWwindow*)m_Window);
-		s_WindowCount--;
-		if (s_WindowCount == 0)
-		{
-			glfwTerminate();
-		}
+		glfwTerminate();
 	}
 
 	void Window::OnUpdate()
@@ -33,16 +36,24 @@ namespace Orb
 		return glfwWindowShouldClose((GLFWwindow*)m_Window);
 	}
 
+	std::pair<int, int> Window::GetSize()
+	{
+		std::pair<int, int> size;
+		glfwGetWindowSize((GLFWwindow*)m_Window, &size.first, &size.second);
+		return size;
+	}
+
+	HWND Window::GetHWND()
+	{
+		return glfwGetWin32Window((GLFWwindow*)m_Window);
+	}
+
 	Window::Window(const WindowCreateInfo& info)
 	{
-		if (s_WindowCount == 0)
-		{
 			glfwInit();
-		}
 
 		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 		m_Window = (void*)glfwCreateWindow(info.Width, info.Height, info.Title.c_str(), nullptr, nullptr);
-		s_WindowCount++;
 	}
 }
 

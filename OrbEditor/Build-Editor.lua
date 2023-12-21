@@ -12,7 +12,9 @@ project "OrbEditor"
       "Source",
 
 	  -- Include Core
-	  "../OrbCore/Source"
+	  "../OrbCore/Source",
+
+      "../OrbCore/External/spdlog/include"
    }
 
    links

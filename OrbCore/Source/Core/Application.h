@@ -19,8 +19,6 @@ namespace Orb
 		void Run();
 
 	private:
-		Window* m_Window = nullptr;
-		Context* m_Context = nullptr;
 
 		static Application* s_Instance;
 		friend int ::main(int argc, char** argv);

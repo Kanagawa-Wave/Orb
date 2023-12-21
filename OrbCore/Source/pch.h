@@ -12,3 +12,5 @@
 #include <memory>
 #include <unordered_set>
 #include <string>
+
+#include "Core/Log.h"

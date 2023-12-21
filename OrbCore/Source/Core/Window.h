@@ -24,15 +24,23 @@ namespace Orb
 	class Window
 	{
 	public:
-		static Window* Create(const WindowCreateInfo& info);
-		~Window();
+		static void Create(const WindowCreateInfo& info);
+		static void Destroy();
+
+		static Window& Get() { return *s_Window; }
 
 		void OnUpdate();
 
 		bool ShouldClose() const;
 
+		std::pair<int, int> GetSize();
+		HWND GetHWND();
+
 	private:
 		Window(const WindowCreateInfo& info);
+		~Window();
+
+		static Window* s_Window;
 
 		void* m_Window;
 	};

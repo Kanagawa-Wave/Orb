@@ -15,20 +15,21 @@ namespace Orb
 		WindowCreateInfo info;
 		info.setTitle("Editor")
 			.setSize(800, 600);
-		m_Window = Window::Create(info);
-		m_Context = Context::Create();
+		Window::Create(info);
+
+		Context::Init();
 	}
 
 	Application::~Application()
 	{
-		delete m_Window;
+		Window::Destroy();
 	}
 
 	void Application::Run()
 	{
-		while (!m_Window->ShouldClose())
+		while (!Window::Get().ShouldClose())
 		{
-			m_Window->OnUpdate();
+			Window::Get().OnUpdate();
 		}
 	}
 

@@ -10,7 +10,8 @@ project "OrbCore"
    includedirs
    {
       "Source",
-      "External/glfw/include"
+      "External/glfw/include",
+      "External/spdlog/include"
    }
 
    pchheader "pch.h"
