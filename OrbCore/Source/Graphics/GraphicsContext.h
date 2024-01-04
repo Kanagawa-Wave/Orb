@@ -2,18 +2,18 @@
 
 namespace Orb
 {
-	class Context
+	class GraphicsContext
 	{
 	public:
-		static void Init();
-		static Context& Get() { return *s_Context; }
+		static void Init(void* window);
+		static GraphicsContext& Get() { return *s_Context; }
 
-		~Context();
+		~GraphicsContext();
 
 	private:
-		static Context* s_Context;
+		static GraphicsContext* s_Context;
 
-		Context();
+		GraphicsContext();
 
 		friend class Display;
 
